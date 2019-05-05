@@ -10,5 +10,5 @@ var server = http.Server(app)
 
 var io = socketio(server);	
 
-
+server.listen(process.env.PORT || PORT);
 console.log("ok");
