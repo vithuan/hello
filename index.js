@@ -17,5 +17,4 @@ esp8266_nsp.use(middleware);									//Khi esp8266 emit bất kỳ lệnh gì l�
 webapp_nsp.use(middleware);	
 server.listen(process.env.PORT || PORT);	
 
-
-console.log("Dang chay 1")
+console.log("Server nodejs chay tai dia chi: " + ip.address() + ":" + PORT)
