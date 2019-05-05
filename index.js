@@ -8,5 +8,13 @@ var ip = require('ip');
 var app = express();									//#Khởi tạo một chương trình mạng (app)
 var server = http.Server(app)
 
-var io = socketio(server);			
+var io = socketio(server);	
+var webapp_nsp = io.of('/webapp')				//namespace của webapp
+var esp8266_nsp = io.of('/esp8266')				//namespace của esp8266
+
+var middleware = require('socketio-wildcard')();		//Để có thể bắt toàn bộ lệnh!
+esp8266_nsp.use(middleware);									//Khi esp8266 emit bất kỳ lệnh gì lên thì sẽ bị bắt
+webapp_nsp.use(middleware);	
+
+
 console.log("Dang chay")
